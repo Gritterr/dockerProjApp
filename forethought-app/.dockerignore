@@ -1,0 +1,7 @@
+# node_modules is committed to the repo; the image installs its own with npm ci
+node_modules
+npm-debug.log
+nodesource_setup.sh
+README.MD
+Dockerfile
+.dockerignore

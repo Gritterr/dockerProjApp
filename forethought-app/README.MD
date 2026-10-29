@@ -25,3 +25,16 @@ docker build . -t IMAGE-NAME (replace image name with your name)
 docker run -d --name my-container -p 80:8080 IMAGE-NAME (replace image name with your name)
 
 ```
+
+## Docker image
+
+The [Dockerfile](Dockerfile) builds a small image on `node:20-alpine`: it installs the locked dependencies with `npm ci`, runs as the non-root `node` user, and has a `HEALTHCHECK` on the home page. The image is published as `saviochristopher/forethought-todo`.
+
+```
+git clone https://github.com/Gritterr/dockerProjApp.git
+cd dockerProjApp/forethought-app
+docker build -t saviochristopher/forethought-todo:1.0 .
+docker run -d --name todo -p 8095:8080 saviochristopher/forethought-todo:1.0
+```
+
+The app keeps its tasks in memory, so it needs no volume. Each replica of a scaled service has its own list.
